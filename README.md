@@ -13,7 +13,7 @@ The daemon is smart enough and has queue manager, if you send two text messages 
 This project source is completely written in GoLang and can be used in another projects such as big LED light boards for the advertising products and so on, with small additional work new fonts and Languages can be implemented easily. Daemon also uses avahi technology to be easily discovered on the network.
 ![avahi](/pics/zeroconf.png)
 
-The MacClient also has abillity to detect device on the network on the fly, no need to specify ip address and/or connection details manually, but i can be specified to speed things up..
+The [MacClient](/MacClient) also has abillity to detect device on the network on the fly, no need to specify ip address and/or connection details manually, but i can be specified to speed things up..
 
 # What i learned from this project?
 It's been fun to learn how to programmatically setup WIFI hotspot, [AVAHI](https://www.avahi.org) zero configuration networking and improve programming skills on [GoLang](https://golang.org).
@@ -36,35 +36,39 @@ It's been fun to learn how to programmatically setup WIFI hotspot, [AVAHI](https
 
 # Hardware setup
 
-```
-Board Pin	Name	Remarks		RPi Pin		RPi Function
-1	        VCC	+5V Power	2		5V0
-2	        GND	Ground		6		GND
-3	        DIN	Data In		19		GPIO 10 (MOSI)
-4	        CS	Chip Select	24		GPIO 8 (SPI CE0)
-5	        CLK	Clock		23		GPIO 11 (SPI CLK)
-```
+## PINS
 
-# OrangePI Board OS setup
-Open /boot/armbianEnv.txt and add these lines:
+Board Pin | Name | Remarks | RPi Pin | RPi Function
+--------- | ---- | ------- | ------- | ------------
+1 | VCC | +5V Power | 2 | 5V0
+2 | GND | Ground | 6 | GND
+3 | DIN	| Data In | 19 | GPIO 10 (MOSI)
+4 | CS | Chip Select | 24 | GPIO 8 (SPI CE0)
+5 | CLK | Clock | 23 | GPIO 11 (SPI CLK)
+
+# Software setup
+
+## OrangePI Board OS setup
+
+Open **/boot/armbianEnv.txt** and add these lines:
 ```
 overlay_prefix=sun8i-h3
 overlays=spi-spidev
 param_spidev_spi_bus=0
 ```
-# Code setup on OrangePI device
+
+## Code setup on OrangePI device
+
 ```
 git clone https://github.com/e1z0/go-leds
 cd go-leds
 make deps && make
 ```
-Copy systemd services led.service and Setup/led_setup.service to /etc/systemd/system (change original path to downloaded code) and start/enable them
+Copy systemd services **led.service** and **Setup/led_setup.service** to **/etc/systemd/system** (change original path in service files) and start/enable them
 ```
 systemctl enable led_setup && systemctl enable led
 systemctl start led_setup && systemctl start led
 ```
-
-
 
 ## Compile MacOS Client
 ```
@@ -74,15 +78,15 @@ make
 make distribution
 ```
 
-Launch ledofication.app the log file is at ledofication.app/Contents/MacOS/ledofication.log
+The application bundle ledofication.app should be created, the log file can be found at ledofication.app/Contents/MacOS/ledofication.log (it will be created after startup)
 
 
 # More pictures
 
-[pic1](/pics/IMG_2337.jpeg)
+![pic1](/pics/IMG_2337.jpeg)
 
-[pic2](/pics/IMG_2372.jpeg)
+![pic2](/pics/IMG_2372.jpeg)
 
-[pic3](/pics/IMG_2373.jpeg)
+![pic3](/pics/IMG_2373.jpeg)
 
-[pic4](/pics/IMG_2376.jpeg)
+![pic4](/pics/IMG_2376.jpeg)
