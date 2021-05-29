@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>LED Matrix Wifi Setup</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<form action="/set" method="post">
+  <div class="form-group">
+  <label for="exampleFormControlSelect1">Select wifi network:</label>
+<!--    <select class="form-control" id="exampleFormControlSelect1" name="network">
+{{ range . }}
+<option value="{{ .Id }}">{{ .Name }}</option>
+{{ end }}
+    </select>-->
+  <input type="text" class="form-control" id="exampleFormControlSelect1" placeholder="Wifi name" name="network">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Wifi Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="checkbox">
+    <label class="form-check-label" for="exampleCheck1">I'm sure i want to store new settings!</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Save & Connect</button>
+</form>
+</body>
+</html>

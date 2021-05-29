@@ -1,0 +1,16 @@
+[Unit]
+Description=led daemon
+Wants=led_setup.service
+After=led_setup.service
+
+[Service]
+Type=simple
+ExecStart=/home/devnull/Go_Ledai/go_ledai
+WorkingDirectory=/home/devnull/Go_Ledai
+Restart=on-failure
+User=root
+
+[Install]
+WantedBy=multi-user.target
+
+

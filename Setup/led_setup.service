@@ -1,0 +1,13 @@
+[Unit]
+Description=led setup
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/devnull/Go_Ledai/Setup/setup
+WorkingDirectory=/home/devnull/Go_Ledai/Setup
+Restart=on-failure
+User=root
+
+[Install]
+WantedBy=multi-user.target

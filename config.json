@@ -1,0 +1,18 @@
+{
+  "port": 4000,
+  "admin_secret": "zzzzzzzz",
+  "ledslength": 8,
+  "ledsrotation": 3,
+  "clockatidle": false,
+  "debug": true,
+  "displayerrormessages": true,
+  "server_options": {
+    "enable_tls": false,
+    "cert_file": "ssl/server.pem",
+    "key_file": "ssl/server.key",
+    "tls_config": {
+      "ServerName": "localhost"
+    }
+  }
+}
+

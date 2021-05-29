@@ -1,0 +1,2 @@
+Used modified library from https://github.com/adrianh-za/go-max7219-rpi
+Used tutorial how to establish connection to max7219 on OrangePI lite from https://žn.lt/wiki/OrangePI#Ledu_palaikymo_ijungimas_armbian_stretch_distribucijoje
